@@ -1,0 +1,8 @@
+<h1> edit movie </h1>
+<form action="/movies/<%= @movie.id %>" method="post">
+  <%= token_tag %>
+  <input type="hidden" name="_method" value="put">
+  Movie Title:<input type="text" name="[movie]title" Placeholder="<%= @movie.title %>"><br/>
+  Tagline:<input type="text" name="[movie]tagline" Placeholder="<%= @movie.tagline %>">
+  <button type="submit">Submit Changes</submit>
+</form>

@@ -1,0 +1,25 @@
+<h1>Your Movie</h1>
+<div class="title">
+  <%= @movie.title %>
+</div>
+<div class="tagline">
+  <%= @movie.tagline %>
+</div>
+<h3>The Cast</h3>
+<ul>
+  <% @movie.actors.each do |actor| %>
+  <li><%= actor.name %>
+    <form action="/movies/<%= @movie.id %>/actors/<%= actor.id %>" method="post">
+      <%= token_tag %>
+      <input type="hidden" name="_method" value="delete">
+      <button type="submit">Remove</button>
+    </form>
+      </li>
+  <% end %>
+</ul>
+<h3>Search for an actor</h3>
+<form action="/movies/<%= @movie.id %>/actors/search" method="get">
+  <input type="text" name="search_term" placeholder="actor's name">
+  <button type="submit">submit</button>
+</form>
+<a href="/movies">Finish editing and see my results</a>

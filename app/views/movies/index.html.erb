@@ -1,0 +1,15 @@
+<h1>Tinsl</h1>
+<h3>Be the movie mogul you always knew you could be</h3>
+<h2> Hello, <%=@current_user.name %>.</h2>
+<% @movies.each do |movie| %>
+  <div class="movie">
+    <form action="/movies/<%= movie.id %>" method="post">
+      <input type="hidden" name="_method" value="delete">
+      <%= token_tag %>
+    <div class="title"><%= movie.title %></div>
+    <div class="tagline"><%= movie.tagline %></div>
+    <button type="submit">Delete</button>
+    <a href="/movies/<%= movie.id %>/edit">edit</a>
+  </div><!--movie-->
+<% end %> 
+<a href="/movies/new">Create a movie >></a>

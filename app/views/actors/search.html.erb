@@ -1,0 +1,10 @@
+<h1> pick an actor</h1>
+<ul>
+<% @results.each do |actor| %>
+  <li><%=actor.name%><form action="/movies/<%= params[:id] %>/actors/<%= actor.id %>" method="post"><%= token_tag %>
+    <input type="hidden" name="_method" value="put">
+    <button type="submit">add</button>
+  </form>
+  </li>
+<% end %>
+</ul> 
