@@ -12,7 +12,7 @@ class ActorsController < ApplicationController
     actor = Actor.find(params[:id])
     movie.actors << actor
 
-    redirect_to "/movies/#{ movie.id }"
+    redirect_to "/movies/#{ movie.id }/edit"
   end
 
   def destroy
@@ -20,6 +20,6 @@ class ActorsController < ApplicationController
     remove_actor = Actor.find(params[:id])
     movie.actors.delete(remove_actor)
 
-    redirect_to "/movies/#{ movie.id }"
+    redirect_to "/movies/#{ movie.id }/edit"
   end
 end

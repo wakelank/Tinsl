@@ -18,7 +18,7 @@ class MoviesController < ApplicationController
         new_movie = Movie.create(movie_params)
         current_user.movies << new_movie
 
-        redirect_to "/movies/#{ new_movie.id }"
+        redirect_to "/movies/#{ new_movie.id }/edit"
       end
 
       def new
@@ -40,7 +40,7 @@ class MoviesController < ApplicationController
         edit_movie = Movie.find(params[:id])
         edit_movie.update(movie_params)
 
-        redirect_to "/movies/#{ edit_movie.id }"
+        redirect_to "/movies/#{ edit_movie.id }/edit"
       end
 
       def destroy

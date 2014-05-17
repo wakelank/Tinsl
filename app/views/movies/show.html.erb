@@ -22,4 +22,8 @@
   <input type="text" name="search_term" placeholder="actor's name">
   <button type="submit">submit</button>
 </form>
-<a href="/movies">Finish editing and see my results</a>
+<form action="/movies/<%= @movie.id %>" method="post">
+      <input type="hidden" name="_method" value="delete">
+      <%= token_tag %>
+       <button type="submit">Delete Movie</button>
+<a href="/movies">Edit Movie</a>

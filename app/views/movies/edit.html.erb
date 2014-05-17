@@ -2,7 +2,30 @@
 <form action="/movies/<%= @movie.id %>" method="post">
   <%= token_tag %>
   <input type="hidden" name="_method" value="put">
-  Movie Title:<input type="text" name="[movie]title" Placeholder="<%= @movie.title %>"><br/>
-  Tagline:<input type="text" name="[movie]tagline" Placeholder="<%= @movie.tagline %>">
-  <button type="submit">Submit Changes</submit>
+  Movie Title:<input type="text" name="[movie]title" value="<%= @movie.title %>"><br/>
+  Tagline:<input type="text" name="[movie]tagline" value="<%= @movie.tagline %>">
+  <button type="submit">Submit Changes</button>
 </form>
+<h3>The Cast</h3>
+<ul>
+  <% @movie.actors.each do |actor| %>
+  <li><%= actor.name %>
+    <form action="/movies/<%= @movie.id %>/actors/<%= actor.id %>" method="post">
+      <%= token_tag %>
+      <input type="hidden" name="_method" value="delete">
+      <button type="submit">Remove</button>
+    </form>
+      </li>
+  <% end %>
+</ul>
+<h3>Search for an actor</h3>
+<form action="/movies/<%= @movie.id %>/actors/search" method="get">
+  <input type="text" name="search_term" placeholder="actor's name">
+  <button type="submit">submit</button>
+</form>
+<form action="/movies/<%= @movie.id %>" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <%= token_tag %>
+  <button type="submit">Delete Movie</button>
+</form>
+<a href="/movies">Finish Editing and see result</a>
