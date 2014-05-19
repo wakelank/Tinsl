@@ -5,6 +5,21 @@ Rails.application.routes.draw do
   get 'movies/:id/actors/search' => 'actors#search'
   put 'movies/:movie_id/actors/:id' => 'actors#save'
 
+  get 'sessions/new' => 'sessions#new', as: 'log_in'
+  post 'sessions' => 'sessions#create'
+  delete 'sessions' => 'sessions#destroy', as: 'log_out'
+
+  get 'users/new' => 'users#new'
+  post 'users' => 'users#create'
+  get 'users' => 'users#index'
+  root 'users#index'
+
+
+
+
+
+
+
   resources :movies do
     resources :actors
   end 

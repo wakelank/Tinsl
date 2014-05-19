@@ -11,7 +11,7 @@ class MoviesController < ApplicationController
       #            DELETE /movies/:id(.:format)                       movies#destroy                                           
 
       def index
-        @movies = @current_user.movies
+        @movies = current_user.movies
         
       end
 

@@ -1,6 +1,6 @@
-<h1>Tinsl</h1>
-<h3>Be the movie mogul you always knew you could be</h3>
-<h2> Hello, <%=@current_user.name %>.</h2>
+<h1 class="main_title">Tinsl</h1>
+<h2 class="main_tagline">Be the movie mogul you always knew you could be</h3>
+<h2><%=current_user.name %>, executive producer</h2><%= link_to "log out", log_out_path, method: :delete %>
 <% @movies.each do |movie| %>
   <div class="movie">
     <div class="four column">
@@ -15,7 +15,8 @@
         <% end %>
       
     </div><!-- actors -->
-    <div class="rightcol four column omega">
+    <!-- <div class="rightcol four column omega" id='rightcol' > -->
+    <div class="rightcol four column omega offset-by-four" >
       <div class="gross">$<%= number_with_delimiter(movie.get_total_gross) %></div>
       <div class="edit"><a href="/movies/<%= movie.id %>/edit">Make Unreasonable Demands >></a></div>
 

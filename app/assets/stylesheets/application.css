@@ -12,8 +12,12 @@
  *=require base
  *=require layout
  *=require skeleton
-
  *= require_tree .
  *= require_self
  */
 
+
+#rightcol {
+  background-color: green;
+  float: right;
+}

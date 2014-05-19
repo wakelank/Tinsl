@@ -1,7 +1,9 @@
-<h2>Here's your chance.  Cast a movie.</h2>
-<form action="/movies" method="post">
-  <%= token_tag %>
-  <input type="text" name="[movie]title" placeholder="Movie Title">
-  <input type="text" name="[movie]tagline" placeholder="Movie tagline">
-  <button type="submit">Submit movie</button>
-</form>
+<div class="nice_border">
+  <h2>Pick a title and tagline.</h2>
+  <form action="/movies" method="post">
+    <%= token_tag %>
+    <input type="text" name="[movie]title" placeholder="Movie Title">
+    <input type="text" name="[movie]tagline" placeholder="Movie tagline">
+    <button type="submit">Submit movie</button>
+  </form>
+</div>

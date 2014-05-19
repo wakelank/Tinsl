@@ -2,12 +2,26 @@ body {
   background-color: #8BABB8;
   font-family: sans-serif;
 }
+h1 {
+  font-family: sans-serif;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+a:visited {
+  text-decoration: none;
+  color: black;
+}
 .movie {
   border: 2px #526262 solid;
   border-radius: 10px;
   margin: 5px;
   padding: 10px;
   height: 100px;
+  background-color: #E6D6B3;
+
+
 }
 .title {
   font-size: 2em;
@@ -25,7 +39,7 @@ body {
   margin-top: 50px;
 }
 .rightcol {
-  
+  background-color: green;
   float: right;
 }
 .nice_border {
@@ -33,4 +47,24 @@ body {
   border-radius: 10px;
   margin: 5px;
   padding: 10px;
+  background-color: #E6D6B3;
+}
+.delete_form {
+  display: inline;
+}
+.bottom_line {
+  border: 2px #526262 solid;
+  border-radius: 10px;
+  margin: 5px;
+  padding: 10px;
+  background-color: #51172D;
+  color: white;
+}
+.main_title{
+  margin-bottom: 0px;
+}
+.main_tagline {
+  line-height: 20px;
+  font-size: 1em;
+  font-style: italic;
 }
