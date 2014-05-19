@@ -3,17 +3,23 @@
 <h2> Hello, <%=@current_user.name %>.</h2>
 <% @movies.each do |movie| %>
   <div class="movie">
-    
-    <div class="title"><%= movie.title %></div>
-    <div class="tagline"><%= movie.tagline %></div>
+    <div class="four column">
+     <div class="title"><%= movie.title %></div>
+     <div class="tagline"><%= movie.tagline %></div>
+    </div>
    
-    <div class="actors">
-      <ul>
+    <div class="actors six column">
+      
         <% movie.actors.each do |actor| %>
-        <li><%= actor.name %></li>
+        <div class="actor two column"><%= actor.name %></div>
         <% end %>
-      </ul>
-    <a href="/movies/<%= movie.id %>/edit">Edit >></a>
+      
+    </div><!-- actors -->
+    <div class="rightcol four column omega">
+      <div class="gross">$<%= number_with_delimiter(movie.get_total_gross) %></div>
+      <div class="edit"><a href="/movies/<%= movie.id %>/edit">Make Unreasonable Demands >></a></div>
+
+    </div><!--rightcol-->
   </div><!--movie-->
 <% end %> 
 <a href="/movies/new">Create a movie >></a>

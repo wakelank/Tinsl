@@ -32,13 +32,21 @@ movies_arr.each do |movie|
   movie_data = JSON.parse(HTTParty.get(url + "/?t=" + title + "&y=" + movie[:year].to_s))
   actor_arr = movie_data["Actors"].split(", ")
   actor_arr.each do |actor|
-    new_actor = Actor.create(name: actor)
+  db_actor = Actor.find_by(name: actor)
+
+  if db_actor == nil
+    new_actor = Actor.create(name: actor, value: movie[:gross] / 4)
+  else
+    new_value = db_actor.value + (movie[:gross] / 4)
+    db_actor.update(value: new_value)
+  end
+
     #movie.actors << new_actor
   end
 end
 
 
-
+User.create(name: "Lichard Grey")
 
 
 # Rank  Title USA Box Office
