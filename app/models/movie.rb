@@ -10,10 +10,6 @@ class Movie < ActiveRecord::Base
     total
   end
 
-  def generate_title
-    title = "The " + RandomWord.adjs.next + " " + RandomWord.nouns.next
-    title.gsub("_", " ")
-    title.split.map(&:capitalize).join(' ')
-  end
+
 
 end

@@ -12,5 +12,14 @@ class ApplicationController < ActionController::Base
     redirect_to root_path if current_user = nil
   end
 
+  def capitalize_phrase(phrase)
+    phrase.split.map(&:capitalize).join(' ')
+  end
+
+  def generate_title
+    title = "The " + RandomWord.adjs.next + " " + RandomWord.nouns.next
+    title = title.gsub("_", " ")
+    title.split.map(&:capitalize).join(' ')
+  end
   
 end

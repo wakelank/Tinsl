@@ -3,10 +3,11 @@
   <form action="/movies/<%= @movie.id %>" method="post">
     <%= token_tag %>
     <input type="hidden" name="_method" value="put">
-    Movie Title:<input type="text" name="[movie]title" value="<%= @movie.title %>"><br/>
+    Movie Title:<input type="text" name="[movie]title" value="<%= @title %>"><br/>
     Tagline:<input type="text" name="[movie]tagline" value="<%= @movie.tagline %>">
     <button type="submit">Submit Changes</button>
   </form>
+  <a href="/movies/<%= @movie.id %>/edit?gen_title=true">Write me a title!</a>
 </div><!--title_tag-->
 
 <% if @movie.actors.count != 0 %>

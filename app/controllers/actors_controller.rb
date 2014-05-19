@@ -4,7 +4,7 @@ class ActorsController < ApplicationController
   def search
     actor = params[:search_term]
    # @results = Actor.where(name: params[:search_term])
-   @results = Actor.where('name LIKE ?', "%#{actor}%")
+   @results = Actor.where('name LIKE ?', "%#{ capitalize_phrase(actor) }%")
   end
 
   def save

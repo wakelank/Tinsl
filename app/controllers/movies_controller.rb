@@ -28,6 +28,14 @@ class MoviesController < ApplicationController
 
       def edit
         @movie = Movie.find(params[:id])
+        if (params[:gen_title])
+          #@title = "The " + RandomWord.adjs.next + " " + RandomWord.nouns.next
+          #@title = @title.gsub('_', ' ')
+
+            @title = generate_title
+        else
+          @title = @movie.title
+        end
 
 
 
