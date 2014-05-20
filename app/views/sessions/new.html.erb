@@ -1,10 +1,15 @@
 <h1>Log-In</h1>
 
+<% flash.each do |name, msg| -%>
+      <%= content_tag :div, msg, class: name %>
+  <% end -%>
+
 
 <%= form_tag sessions_path do %>
-  <%= label_tag :name %>
-  <%= text_field_tag :name %>
+  <%= label_tag :email %>
+  <%= text_field_tag :email %>
   <%= label_tag :password %>
   <%= password_field_tag :password %>
   <%= submit_tag %>
 <% end %>
+<%= link_to "Register", users_new_path %>
