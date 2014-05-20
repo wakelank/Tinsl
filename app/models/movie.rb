@@ -10,6 +10,21 @@ class Movie < ActiveRecord::Base
     total
   end
 
+  def get_rank
+    rank=0
+    arr=[]
+    Seedmovie.all.each do |movie|
+      arr << movie.gross
+    end
 
+    arr.sort! { |x,y| y <=> x}
+    arr.each do |x|
+      break if self.get_total_gross > x
+      rank = arr.index(x)+1
+    end
+    rank
+
+
+  end
 
 end

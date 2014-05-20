@@ -2,24 +2,29 @@
 <h2 class="main_tagline">Be the movie mogul you always knew you could be</h3>
 <h2><%=current_user.name %>, executive producer</h2><%= link_to "log out", log_out_path, method: :delete %>
 <% @movies.each do |movie| %>
-  <div class="movie">
+  <div class="movie clearfix">
     <div class="four column">
      <div class="title"><%= movie.title %></div>
      <div class="tagline"><%= movie.tagline %></div>
+     <div class="edit"><a href="/movies/<%= movie.id %>/edit">Make Unreasonable Demands >></a></div>
+
     </div>
    
     <div class="actors six column">
       
         <% movie.actors.each do |actor| %>
-        <div class="actor two column"><%= actor.name %></div>
+        <div class="actor two column"><%= actor.name %><br />
+          <img src="<%= actor.get_image %>" class="actor_image"> 
+        </div>
         <% end %>
       
     </div><!-- actors -->
     <!-- <div class="rightcol four column omega" id='rightcol' > -->
     <div id="rightcol four column omega" >
       <div class="gross">$<%= number_with_delimiter(movie.get_total_gross) %></div>
-      <div class="edit"><a href="/movies/<%= movie.id %>/edit">Make Unreasonable Demands >></a></div>
-
+    </div>
+    <div class="movie_rank">
+      #<%= movie.get_rank %>
     </div><!--rightcol-->
   </div><!--movie-->
 <% end %> 
