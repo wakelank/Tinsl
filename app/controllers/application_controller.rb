@@ -17,6 +17,7 @@ class ApplicationController < ActionController::Base
   end
 
   def generate_title
+    #RandomWord is unreliable.  Causes errors
     title = "The " + RandomWord.adjs.next + " " + RandomWord.nouns.next
     title = title.gsub("_", " ")
     title.split.map(&:capitalize).join(' ')

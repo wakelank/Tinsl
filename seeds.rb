@@ -1,6 +1,3 @@
-Seedmovie.delete_all
-Actor.delete_all
-
 arr = [
     
     {
@@ -30,7 +27,7 @@ arr = [
 
     {
       title: {
-        text: "E.T. the Extra-Terrestrial",
+        text: "E.T.: The Extra-Terrestrial",
         href: "http://www.boxofficemojo.com/movies/?id=et.htm"
       },
       gross: "$1,129,160,500"
@@ -86,7 +83,7 @@ arr = [
     },
     {
       title: {
-        text: "Star Wars: Episode V - The Empire Strikes Back",
+        text: "The Empire Strikes Back",
         href: "http://www.boxofficemojo.com/movies/?id=starwars5.htm"
       },
       gross: "$781,517,900"
@@ -107,7 +104,7 @@ arr = [
     },
     {
       title: {
-        text: "Star Wars: Episode VI - Return of the Jedi",
+        text: "Return of the Jedi",
         href: "http://www.boxofficemojo.com/movies/?id=starwars6.htm"
       },
       gross: "$748,712,900"
@@ -191,7 +188,7 @@ arr = [
     },
     {
       title: {
-        text: "The Avengers",
+        text: "Marvel's The Avengers",
         href: "http://www.boxofficemojo.com/movies/?id=avengers11.htm"
       },
       gross: "$611,075,000"
@@ -282,7 +279,7 @@ arr = [
     },
     {
       title: {
-        text: "Cleopatra",
+        text: "Cleopatra (1963)",
         href: "http://www.boxofficemojo.com/movies/?id=cleopatra.htm"
       },
       gross: "$534,780,400"
@@ -758,7 +755,7 @@ arr = [
     },
     {
       title: {
-        text: "Harry Potter and the Deathly Hallows: Part 2",
+        text: "Harry Potter and the Deathly Hallows Part 2",
         href: "http://www.boxofficemojo.com/movies/?id=harrypotter72.htm"
       },
       gross: "$381,999,700"
@@ -968,7 +965,7 @@ arr = [
     },
     {
       title: {
-        text: "Kramer vs. Kramer",
+        text: "Kramer Vs. Kramer",
         href: "http://www.boxofficemojo.com/movies/?id=kramervskramer.htm"
       },
       gross: "$342,441,100"
@@ -1031,7 +1028,7 @@ arr = [
     },
     {
       title: {
-        text: "Alice in Wonderland",
+        text: "Alice in Wonderland (2010)",
         href: "http://www.boxofficemojo.com/movies/?id=aliceinwonderland10.htm"
       },
       gross: "$334,611,500"
@@ -1059,7 +1056,7 @@ arr = [
     },
     {
       title: {
-        text: "3 Men and a Baby",
+        text: "Three Men and a Baby",
         href: "http://www.boxofficemojo.com/movies/?id=threemenandababy.htm"
       },
       gross: "$331,962,100"
@@ -1297,7 +1294,7 @@ arr = [
     },
     {
       title: {
-        text: "A Star Is Born",
+        text: "A Star Is Born (1976)",
         href: "http://www.boxofficemojo.com/movies/?id=starisborn76.htm"
       },
       gross: "$298,967,100"
@@ -1339,7 +1336,7 @@ arr = [
     },
     {
       title: {
-        text: "Harry Potter and the Deathly Hallows: Part 1",
+        text: "Harry Potter and the Deathly Hallows Part 1",
         href: "http://www.boxofficemojo.com/movies/?id=harrypotter7.htm"
       },
       gross: "$294,433,900"
@@ -1381,7 +1378,7 @@ arr = [
     },
     {
       title: {
-        text: "The Twilight Saga: Breaking Dawn - Part 2",
+        text: "The Twilight Saga: Breaking Dawn Part 2",
         href: "http://www.boxofficemojo.com/movies/?id=breakingdawn2.htm"
       },
       gross: "$289,056,500"
@@ -1395,7 +1392,7 @@ arr = [
     },
     {
       title: {
-        text: "The Twilight Saga: Breaking Dawn - Part 1",
+        text: "The Twilight Saga: Breaking Dawn Part 1",
         href: "http://www.boxofficemojo.com/movies/?id=breakingdawn.htm"
       },
       gross: "$285,867,000"
@@ -1408,44 +1405,9 @@ arr = [
       gross: "$285,795,800"
     }
   ]
-#Populates the Seedmovies table
+
 arr.each do |movie|
   x = movie[:gross].gsub('$','')
-  x = x.gsub(',','_')
+  x = x.gsub(',','')
   Seedmovie.create(title: movie[:title][:text], gross: x)
-end
-url = "http://www.omdbapi.com"
-
-#Populates the actors table based on the movies in Seedmovies
-Seedmovie.all.each do |movie|
-  actor_arr=[]
-  title = movie[:title].gsub(" ", "+")
-  movie_data = JSON.parse(HTTParty.get(url + "/?t=" + title + "&y=" + movie[:year].to_s))
-  if movie_data["Actors"]
-    actor_arr = movie_data["Actors"].split(", ")
-    actor_arr.each do |actor|
-      db_actor = Actor.find_by(name: actor)
-      if db_actor.nil?
-        db_actor = Actor.create(name: actor)
-      end
-      movie.actors << db_actor
-    end
-  end
-end
-
-#calulates the value of each actor
-Actor.all.each do |actor|
-  value = 0
-  actor.seedmovies.each do |movie|
-    if movie.actors.count == 0
-      count = 1
-    else
-      count = movie.actors.count
-    end
-    gross_per_actor = movie.gross / count
-    value += gross_per_actor
-  end
-  value = value / actor.seedmovies.count
-
-  actor.update(value: value)
 end

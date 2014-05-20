@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140519154235) do
+ActiveRecord::Schema.define(version: 20140520145523) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20140519154235) do
   create_table "actors", force: true do |t|
     t.string   "name"
     t.string   "image_url"
-    t.integer  "value"
+    t.integer  "value",      limit: 8
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -29,12 +29,22 @@ ActiveRecord::Schema.define(version: 20140519154235) do
     t.integer "movie_id"
   end
 
+  create_table "actors_seedmovies", force: true do |t|
+    t.integer "actor_id"
+    t.integer "seedmovie_id"
+  end
+
   create_table "movies", force: true do |t|
     t.string   "title"
     t.string   "tagline"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "seedmovies", force: true do |t|
+    t.string  "title"
+    t.integer "gross"
   end
 
   create_table "users", force: true do |t|
