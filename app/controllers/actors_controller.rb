@@ -10,7 +10,7 @@ class ActorsController < ApplicationController
   def save
     movie = Movie.find(params[:movie_id])
     actor = Actor.find(params[:id])
-    movie.actors << actor
+    movie.actors << actor rescue nil
 
     redirect_to "/movies/#{ movie.id }/edit"
   end

@@ -1,3 +1,4 @@
+<%= render '/header.html.erb' %>
 <h1>Sign in to make film history</h1>
 <% if @user.errors.any? %>
   <div class="errors">
@@ -11,7 +12,7 @@
     </ul>
   </div>
 <% end %>
-
+<div class="nice_border">
 <%= form_for @user do |f| %>
   <%= f.label :email %>
   <%= f.text_field :email %>
@@ -26,3 +27,4 @@
   <%= f.password_field :password_confirmation %>
   <%= f.submit %>
 <% end %>
+</div>

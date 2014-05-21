@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   get 'users/new' => 'users#new'
   post 'users' => 'users#create'
   get 'users' => 'users#index'
-  root 'users#index'
+  root 'movies#index'
 
 
 

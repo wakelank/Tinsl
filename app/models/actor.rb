@@ -1,5 +1,7 @@
 class Actor < ActiveRecord::Base
-  has_and_belongs_to_many :movies
+  # has_and_belongs_to_many :movies
+  has_many :actors_movies
+  has_many :movies, :through => :actors_movies
   has_and_belongs_to_many :seedmovies
 
   def get_image

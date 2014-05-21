@@ -1,15 +1,16 @@
-<h1>Log-In</h1>
+<%= render '/header.html.erb' %>
+<h3>Log-In</h3>
 
 <% flash.each do |name, msg| -%>
       <%= content_tag :div, msg, class: name %>
   <% end -%>
 
-
+<div class="nice_border">
 <%= form_tag sessions_path do %>
   <%= label_tag :email %>
   <%= text_field_tag :email %>
   <%= label_tag :password %>
   <%= password_field_tag :password %>
-  <%= submit_tag %>
+  <%= submit_tag ("Log in") %> <%= link_to "Register", users_new_path %>
 <% end %>
-<%= link_to "Register", users_new_path %>
+</div>

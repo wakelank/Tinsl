@@ -150,7 +150,7 @@
 	  font-size: 11px;
 	  font-weight: bold;
 	  text-decoration: none;
-	  text-shadow: 0 1px rgba(255, 255, 255, .75);
+	  /*text-shadow: 0 1px rgba(255, 255, 255, .75);*/
 	  cursor: pointer;
 	  margin-bottom: 20px;
 	  line-height: normal;
@@ -204,7 +204,7 @@
     border: 0;
     padding: 0;
 	}
-
+*/
 
 /* #Forms
 ================================================== */

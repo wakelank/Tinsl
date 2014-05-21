@@ -19,8 +19,13 @@ a:visited {
   margin: 5px;
   padding: 10px;
   background-color: #E6D6B3;
-
-
+}
+.exec_producer {
+  font-size: 3em;
+  margin-right: 5px;
+}
+.main_tagline {
+  margin-bottom: 35px;
 }
 .title {
   font-size: 2em;
@@ -33,10 +38,11 @@ a:visited {
 .gross {
   font-style: italic;
   font-size: 2.5em;
+  margin-top: 7px;
+  margin-right: 7px;
+  text-align: right;
 }
-.edit {
-  margin-top: 50px;
-}
+
 .rightcol {
   background-color: green;
   float: right;
@@ -51,16 +57,34 @@ a:visited {
 .delete_form {
   display: inline;
 }
-.bottom_line {
+button {
   border: 2px #526262 solid;
   border-radius: 10px;
   margin: 5px;
   padding: 10px;
   background-color: #51172D;
-  color: white;
+  color: #EDEBE6;
 }
+button:hover
+{
+  border: 2px #526262 solid;
+  border-radius: 10px;
+  margin: 5px;
+  padding: 10px;
+  background-color: #51172D;
+  color: #EDEBE6;
+
+
+}
+#edit{
+  margin-top: 10px;
+}
+
 .main_title{
   margin-bottom: 0px;
+  margin-top: 10px;
+  font-family: 'Comfortaa', cursive;
+
 }
 .main_tagline {
   line-height: 20px;
@@ -73,8 +97,29 @@ a:visited {
 .movie_rank {
   font-style: italic;
 font-size: 4em;
-margin-top: 37px;
+margin-top: 15px;
+margin-bottom: 15px;
+margin-right: 100px;
 
+}
+.movie_rank_box {
+  margin-top: 30px;
+  text-align: right;
+}
+#adjacent_ranking {
+  .text-align: right;
+}
+.actors {
+  
+  margin-top: 12px;
+  text-align: center;
+}
+#actor {
+  margin-left: 15px;
+  margin-right: 15px;
+}
+.create_movie {
+  float: right;
 }
 
 .clearfix:after {
@@ -85,3 +130,13 @@ margin-top: 37px;
      clear: both;
      height: 0;
      }
+
+     /* #Buttons
+================================================== */
+/*
+#edit {
+  border: thin #526262 solid;
+  border-radius: 3px;
+  background-color: #37B3B3B;
+  color: #8BABB8;
+}*/

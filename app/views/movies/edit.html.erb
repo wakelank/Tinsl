@@ -1,13 +1,16 @@
+<%= render '/header.html.erb' %>
 <div class="nice_border">
   <h3>Change title and tagline:</h3>
   <form action="/movies/<%= @movie.id %>" method="post">
     <%= token_tag %>
     <input type="hidden" name="_method" value="put">
-    Movie Title:<input type="text" name="[movie]title" value="<%= @title %>"><br/>
+    Movie Title:<input type="text" name="[movie]title" value="<%= @title %>">
+     <a href="/movies/<%= @movie.id %>/edit?gen_title=true"><button>Write me a title!</button></a><br/>
     Tagline:<input type="text" name="[movie]tagline" value="<%= @movie.tagline %>">
+    
     <button type="submit">Submit Changes</button>
   </form>
-  <a href="/movies/<%= @movie.id %>/edit?gen_title=true">Write me a title!</a>
+  <!--<a href="/movies/<%= @movie.id %>/edit?gen_title=true">Write me a title!</a> -->
 </div><!--title_tag-->
 
 <% if @movie.actors.count != 0 %>
@@ -24,13 +27,15 @@
   </div><!--nice_border-->
 <% end %>
 
+<% if @movie.actors.count < 4 %>
 <div class="nice_border">
   <h3>See who's available.</h3>
   <form action="/movies/<%= @movie.id %>/actors/search" method="get">
     <input type="text" name="search_term" placeholder="actor's name">
     <button type="submit">submit</button>
   </form>
-  </div><!--nice_border-->
+</div><!--nice_border-->
+<% end %>
 
   <div class="nice_border">
     <h3>Can the whole project.</h3>
@@ -41,5 +46,5 @@
   </form>
 </div><!--nice_border-->
 <div class="nice_border">
-  <a href="/movies" class="bottom_line">What's the bottom line?</a>
+  <a href="/movies"><button class="bottom_line">What's the bottom line?</button></a>
 </div>

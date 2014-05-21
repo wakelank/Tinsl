@@ -1,34 +1,35 @@
-<h1 class="main_title">Tinsl</h1>
+<%= render '/header.html.erb' %>
 <h2 class="main_tagline">Be the movie mogul you always knew you could be</h3>
-<h2><%=current_user.name %>, executive producer</h2><%= link_to "log out", log_out_path, method: :delete %>
+<div><span class="exec_producer"><%=current_user.name %>, executive producer</span><span class="log_out"><%= link_to "log out", log_out_path, method: :delete %></span>
+<a href="/movies/new"><button class="create_movie">Create a movie</button></a></div>
 <% @movies.each do |movie| %>
-  <div class="movie clearfix">
-    <div class="four column">
+  <div class="sixteen columns movie clearfix">
+    <div class="ten columns">
      <div class="title"><%= movie.title %></div>
      <div class="tagline"><%= movie.tagline %></div>
-     <div class="edit"><a href="/movies/<%= movie.id %>/edit">Make Unreasonable Demands >></a></div>
+     
 
-    </div>
+    
    
-    <div class="actors six column">
-      
-        <% movie.actors.each do |actor| %>
-        <div class="actor two column"><%= actor.name %><br />
-          <img src="<%= actor.get_image %>" class="actor_image"> 
-        </div>
-        <% end %>
-      
+    <div class="actors clearfix">     
+      <% movie.actors.each do |actor| %>
+      <div id="actor" class="two column"><%= actor.name %><br />
+        <img src="<%= actor.get_image %>" class="actor_image"> 
+      </div><!--actor-->
+      <% end %>     
     </div><!-- actors -->
+    
+  </div><!--seven column-->
     <!-- <div class="rightcol four column omega" id='rightcol' > -->
-    <div id="rightcol four column omega" >
+    <div id="rightcol" class="five column omega" >
       <div class="gross">$<%= number_with_delimiter(movie.get_total_gross) %></div>
-    </div>
-    <div class="movie_rank_box">
-      <div class="adjacent_ranking">#<%= movie.ranking[:rank] - 1 %><%= movie.ranking[:one_higher] %></div>
-      <div class="movie_rank">#<%= movie.ranking[:rank] %></div>
-      <div class="adjacent_ranking">#<%= movie.ranking[:rank] + 1 %><%= movie.ranking[:one_lower] %></div>
-
+  
+      <div class="movie_rank_box">
+        <div id="adjacent_ranking"><%= movie.ranking[:one_higher_rank] %> <%= movie.ranking[:one_higher_title] %></div>
+        <div class="movie_rank"><%= movie.ranking[:rank] %></div>
+        <div id="adjacent_ranking"><%= movie.ranking[:one_lower_rank] %> <%= movie.ranking[:one_lower_title] %></div>
+        <div id="edit"><a href="/movies/<%= movie.id %>/edit"><button>Make Unreasonable Demands >></button></a></div>
+      </div><!--movie_rank_box-->
     </div><!--rightcol-->
   </div><!--movie-->
 <% end %> 
-<a href="/movies/new">Create a movie >></a>
