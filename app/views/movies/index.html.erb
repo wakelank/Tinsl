@@ -23,8 +23,11 @@
     <div id="rightcol four column omega" >
       <div class="gross">$<%= number_with_delimiter(movie.get_total_gross) %></div>
     </div>
-    <div class="movie_rank">
-      #<%= movie.get_rank %>
+    <div class="movie_rank_box">
+      <div class="adjacent_ranking">#<%= movie.ranking[:rank] - 1 %><%= movie.ranking[:one_higher] %></div>
+      <div class="movie_rank">#<%= movie.ranking[:rank] %></div>
+      <div class="adjacent_ranking">#<%= movie.ranking[:rank] + 1 %><%= movie.ranking[:one_lower] %></div>
+
     </div><!--rightcol-->
   </div><!--movie-->
 <% end %> 

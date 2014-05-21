@@ -78,6 +78,8 @@ class MoviesController < ApplicationController
 
       end
 
+
+
       private
       def movie_params
         movie_params = params.require(:movie).permit(:title, :tagline)
