@@ -5,9 +5,9 @@
     <%= token_tag %>
     <input type="hidden" name="_method" value="put">
     Movie Title:<input type="text" name="[movie]title" value="<%= @title %>">
-     <a href="/movies/<%= @movie.id %>/edit?gen_title=true"><button>Write me a title!</button></a><br/>
+    <a href="/movies/<%= @movie.id %>/edit?gen_title=true"><button>Write me a title!</button></a><br/>
     Tagline:<input type="text" name="[movie]tagline" value="<%= @movie.tagline %>">
-    
+
     <button type="submit">Submit Changes</button>
   </form>
   <!--<a href="/movies/<%= @movie.id %>/edit?gen_title=true">Write me a title!</a> -->
@@ -16,29 +16,29 @@
 <% if @movie.actors.count != 0 %>
   <div class="nice_border">
     <h3>Fire somebody.</h3>
-      <% @movie.actors.each do |actor| %>
-        <span class="actor"><%= actor.name %></span>
-          <form action="/movies/<%= @movie.id %>/actors/<%= actor.id %>" method="post" class="delete_form">
-            <%= token_tag %>
-            <input type="hidden" name="_method" value="delete">
-            <button type="submit" class="remove_button">You're fired!</button>
-          </form><br />
-      <% end %>  
+    <% @movie.actors.each do |actor| %>
+      <span class="actor"><%= actor.name %></span>
+      <form action="/movies/<%= @movie.id %>/actors/<%= actor.id %>" method="post" class="delete_form">
+        <%= token_tag %>
+        <input type="hidden" name="_method" value="delete">
+        <button type="submit" class="remove_button">You're fired!</button>
+      </form><br />
+    <% end %>
   </div><!--nice_border-->
 <% end %>
 
 <% if @movie.actors.count < 4 %>
-<div class="nice_border">
-  <h3>See who's available.</h3>
-  <form action="/movies/<%= @movie.id %>/actors/search" method="get">
-    <input type="text" name="search_term" placeholder="actor's name">
-    <button type="submit">submit</button>
-  </form>
-</div><!--nice_border-->
+  <div class="nice_border">
+    <h3>See who's available.</h3>
+    <form action="/movies/<%= @movie.id %>/actors/search" method="get">
+      <input type="text" name="search_term" placeholder="actor's name">
+      <button type="submit">submit</button>
+    </form>
+  </div><!--nice_border-->
 <% end %>
 
-  <div class="nice_border">
-    <h3>Can the whole project.</h3>
+<div class="nice_border">
+  <h3>Can the whole project.</h3>
   <form action="/movies/<%= @movie.id %>" method="post">
     <input type="hidden" name="_method" value="delete">
     <%= token_tag %>

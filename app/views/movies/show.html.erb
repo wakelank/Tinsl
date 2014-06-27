@@ -9,13 +9,13 @@
 <h3>The Cast</h3>
 <ul>
   <% @movie.actors.each do |actor| %>
-  <li><%= actor.name %>
-    <form action="/movies/<%= @movie.id %>/actors/<%= actor.id %>" method="post">
-      <%= token_tag %>
-      <input type="hidden" name="_method" value="delete">
-      <button type="submit">Remove</button>
-    </form>
-      </li>
+    <li><%= actor.name %>
+      <form action="/movies/<%= @movie.id %>/actors/<%= actor.id %>" method="post">
+        <%= token_tag %>
+        <input type="hidden" name="_method" value="delete">
+        <button type="submit">Remove</button>
+      </form>
+    </li>
   <% end %>
 </ul>
 <h3>Search for an actor</h3>
@@ -24,7 +24,8 @@
   <button type="submit">submit</button>
 </form>
 <form action="/movies/<%= @movie.id %>" method="post">
-      <input type="hidden" name="_method" value="delete">
-      <%= token_tag %>
-       <button type="submit">Delete Movie</button>
-<a href="/movies">Edit Movie</a>
+  <input type="hidden" name="_method" value="delete">
+  <%= token_tag %>
+  <button type="submit">Delete Movie</button>
+  <a href="/movies">Edit Movie</a>
+</form>
