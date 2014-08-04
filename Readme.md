@@ -2,7 +2,10 @@
 
 ###Fantasy baseball, but for movies.
 **login**: guest@guest.com
+
 **password**: password
+
+*go nuts!*
 
 ![Tinsl Screenshot](/screenshots/TinslScreenshot.gif)
 
