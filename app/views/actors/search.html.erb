@@ -1,9 +1,9 @@
 <h1> pick an actor</h1>
 <% @results.each do |actor| %>
-<div class="nice_border">
-  <%=actor.name%><form action="/movies/<%= params[:id] %>/actors/<%= actor.id %>" method="post"><%= token_tag %>
+  <div class="nice_border">
+    <%=actor.name%><form action="/movies/<%= params[:id] %>/actors/<%= actor.id %>" method="post"><%= token_tag %>
     <input type="hidden" name="_method" value="put">
     <button type="submit">You're hired!</button>
-  </form>
-</div>
+    </form>
+  </div>
 <% end %>
