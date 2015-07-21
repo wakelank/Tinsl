@@ -8,7 +8,7 @@ class Actor < ActiveRecord::Base
     if self.image_url.nil?
       base_url="http://private-e8bc0-themoviedb.apiary-proxy.com/3/search/person?api_key="
       key=ENV.fetch('TMDB_KEY')
-      search = self.name.gsub!(" ","+")
+      search = self.name.gsub!(" ","+") || self.name
       url = base_url + key + "&query=" + search
       results = HTTParty.get(url)
       profile_path=results["results"][0]["profile_path"]
