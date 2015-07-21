@@ -2,7 +2,7 @@ Seedmovie.delete_all
 Actor.delete_all
 
 arr = [
-    
+
     {
       title: {
         text: "Gone with the Wind",
@@ -1449,3 +1449,5 @@ Actor.all.each do |actor|
 
   actor.update(value: value)
 end
+
+User.create({email: "guest@guest.com", name: "guest"})

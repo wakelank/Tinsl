@@ -1,10 +1,10 @@
 class MoviesController < ApplicationController
   before_action :authorize
-                                       
+
 
       def index
         @movies = current_user.movies
-        
+
       end
 
       def create
@@ -15,7 +15,7 @@ class MoviesController < ApplicationController
       end
 
       def new
-        if (params[:gen_title])          
+        if (params[:gen_title])
 
             @title = generate_title
         else
@@ -26,7 +26,7 @@ class MoviesController < ApplicationController
 
       def edit
         @movie = Movie.find(params[:id])
-        if (params[:gen_title])          
+        if (params[:gen_title])
 
             @title = generate_title
         else

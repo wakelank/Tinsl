@@ -7,7 +7,7 @@
     Movie Title:<input type="text" name="[movie]title" value="<%= @title %>">
      <a href="/movies/<%= @movie.id %>/edit?gen_title=true"><button>Write me a title!</button></a><br/>
     Tagline:<input type="text" name="[movie]tagline" value="<%= @movie.tagline %>">
-    
+
     <button type="submit">Submit Changes</button>
   </form>
   <!--<a href="/movies/<%= @movie.id %>/edit?gen_title=true">Write me a title!</a> -->
@@ -23,7 +23,7 @@
             <input type="hidden" name="_method" value="delete">
             <button type="submit" class="remove_button">You're fired!</button>
           </form><br />
-      <% end %>  
+      <% end %>
   </div><!--nice_border-->
 <% end %>
 
