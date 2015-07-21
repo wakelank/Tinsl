@@ -1420,7 +1420,8 @@ url = "http://www.omdbapi.com"
 Seedmovie.all.each do |movie|
   actor_arr=[]
   title = movie[:title].gsub(" ", "+")
-  movie_data = JSON.parse(HTTParty.get(url + "/?t=" + title + "&y=" + movie[:year].to_s))
+  #movie_data = JSON.parse(HTTParty.get(url + "/?t=" + title + "&y=" + movie[:year].to_s))
+  movie_data = HTTParty.get(url + "/?t=" + title + "&y=" + movie[:year].to_s)
   if movie_data["Actors"]
     actor_arr = movie_data["Actors"].split(", ")
     actor_arr.each do |actor|
@@ -1450,4 +1451,4 @@ Actor.all.each do |actor|
   actor.update(value: value)
 end
 
-User.create({email: "guest@guest.com", name: "guest"})
+User.create({email: "guest@example.com", name: "guest", password: "password"})

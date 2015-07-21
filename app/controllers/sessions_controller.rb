@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
 
   def create
       if params[:guest] then
-          email = "guest@guest.com"
+          email = "guest@example.com"
           password = "password"
       else
           email = params[:email]

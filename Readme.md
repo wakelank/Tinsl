@@ -1,11 +1,6 @@
 #Tinsl
 [![Code Climate](https://codeclimate.com/github/wakelank/Tinsl/badges/gpa.svg)](https://codeclimate.com/github/wakelank/Tinsl)
 ###Fantasy baseball, but for movies.
-**login**: guest@guest.com
-
-**password**: password
-
-*go nuts!!!*
 
 ![Tinsl Screenshot](/screenshots/TinslScreenshot.gif)
 

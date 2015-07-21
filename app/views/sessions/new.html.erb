@@ -4,7 +4,6 @@
 <% flash.each do |name, msg| -%>
       <%= content_tag :div, msg, class: name %>
   <% end -%>
-  <h1> hey now </h1>
 <div class="nice_border">
 <%= form_tag sessions_path do %>
   <%= label_tag :email %>
