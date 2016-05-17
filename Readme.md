@@ -10,7 +10,7 @@ Everyone loves movies.  Tinsl is an addictive game that allows you to become a b
 ##Under the hood
 
 The soul of the app is the database of movies and actors.  Automatically getting the grosses of the top movies through an API is impossible (most likely for legal reasons).  So I scraped a list of the top 200 movies of all time and their inflation-adjusted grosses from http://www.boxofficemojo.com/alltime/adjusted.htm.  I used the app at https://www.kimonolabs.com/ and some search-and-replacing to generate a list of movies and grosses in the following format:
-
+```
    [
   ...
    {
@@ -36,7 +36,7 @@ The soul of the app is the database of movies and actors.  Automatically getting
     },
     ...
     ]
-
+```
 Then I passed each movie title to the API at http://www.omdbapi.com/ to get a list of actors for each movie.  The app calculates a value for each actor based on the grosses of films they have been in, and stores it in the actors table.
 
 In addition to Box Office Mojo and OMDB, I used and API at https://www.wordnik.com/ to generate the automatic movie titles, and one at http://www.themoviedb.org/ to get images of the actors.  Everytime a new actor image is acquired I store in in the actors table to avoid having to make multiple API calls for the same image.)
